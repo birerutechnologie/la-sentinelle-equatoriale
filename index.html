@@ -1,11 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Bateau et Sonar</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <style>
+    #animationContainer {
+      position: relative;
+      width: 100%;
+      height: 600px; /* Augmenter la hauteur pour permettre une propagation complète du signal */
+      background: linear-gradient(to bottom, white 50%, lightblue 50%);
+      overflow: hidden;
+    }
+    svg {
+      position: absolute;
+    }
+    #bateauSVG {
+      top: 220px; /* Remonte le bateau de 110 pixels pour le positionner correctement sur la mer */
+    }
+    #sonar {
+      display: block; /* Assurez-vous que le sonar est visible */
+      top: 300px; /* Position initiale du sonar juste en bas du bateau */
+    }
+    .sonarCircle {
+      fill: none;
+      stroke: blue;
+      stroke-width: 2;
+      animation: sonarPulse 2s infinite;
+      transform-origin: center top;
+    }
+    @keyframes sonarPulse {
+      0% {
+        r: 0;
+        opacity: 1;
+        transform: scaleY(0);
+      }
+      100% {
+        r: 150;
+        opacity: 0;
+        transform: scaleY(1);
+      }
+    }
+    #objet {
+      fill: red;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <h1>Le test</h1>
+
+<div id="animationContainer">
+  <!-- Nouveau SVG de bateau -->
+  <svg id="bateauSVG" width="150" height="100" viewBox="0 0 744 452" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M237.731 37.9881C238.573 34.6844 241.311 32.2126 244.167 30.3499C247.022 28.4873 250.165 26.9903 252.603 24.6072C255.041 22.2242 256.681 18.6005 255.549 15.3845C254.174 11.476 249.589 9.91411 245.581 8.86034C282.262 4.91718 319.12 2.86094 356.012 2.69976C356.843 1.57284 358.009 0.737401 359.343 0.312778C360.678 -0.111844 362.112 -0.103938 363.441 0.335377C364.771 0.774691 365.928 1.62294 366.746 2.75896C367.565 3.89498 368.004 5.26064 368 6.66091V125.225H354.678V52.393C323.036 52.4697 291.393 52.5463 259.75 52.623C254.627 52.6353 249.296 52.6027 244.69 50.359C240.084 48.1153 236.466 42.9531 237.731 37.9881Z" fill="#CCCCCC"/>
+    <path d="M338.479 3H355.479V17.5L255.979 19.5V17.5V15L253.479 12L246.479 9L324.979 3H330.479H338.479Z" fill="#009639" stroke="#009639"/>
+    <path d="M355.479 32.5V18L255.979 20L254.979 21L252.979 24.5L249.979 27L246.479 29L243.979 30.5L241.979 32.5H355.479Z" fill="#FCDD09" stroke="#FCDD09"/>
+    <path d="M355.479 33V52H262.979H255.479H251.979H248.979L242.979 49.5L239.479 46L237.979 42.5L236.979 39L237.979 37.5L238.479 36L239.979 34L241.479 33H355.479Z" fill="#3A75C4" stroke="#3A75C4"/>
+    <path d="M566.801 250.449V210.484H597.441C602.864 210.484 608.234 209.416 613.245 207.34C618.255 205.265 622.808 202.223 626.643 198.388C630.478 194.553 633.52 190.001 635.595 184.99C637.67 179.98 638.738 174.61 638.738 169.187L405.607 169.186C405.607 164.24 407.572 159.496 411.07 155.999C414.568 152.501 419.312 150.536 424.258 150.536H586.784V145.9C586.784 130.067 575.823 117.232 562.303 117.232H359.748C328.551 117.232 300.048 137.326 285.346 169.186H252.727C249.959 169.186 247.299 170.263 245.311 172.189L224.684 192.172C223.16 193.649 222.111 195.547 221.672 197.623C221.233 199.7 221.424 201.86 222.221 203.827C223.017 205.794 224.383 207.478 226.143 208.664C227.903 209.85 229.977 210.484 232.099 210.484H257.736V250.449H139.962C138.457 250.449 136.969 250.768 135.596 251.385C134.223 252.001 132.996 252.901 131.996 254.026L108.313 280.67C106.948 282.205 106.056 284.103 105.744 286.133C105.433 288.164 105.715 290.242 106.556 292.116C107.398 293.99 108.764 295.581 110.488 296.698C112.213 297.814 114.224 298.408 116.279 298.408H189.524C191.331 298.408 193.108 298.867 194.689 299.743C196.269 300.618 197.601 301.882 198.559 303.414L211.413 323.965C212.385 325.519 212.939 327.297 213.023 329.128C213.107 330.959 212.717 332.781 211.892 334.417C211.066 336.054 209.832 337.449 208.309 338.47C206.787 339.49 205.027 340.1 203.199 340.242L44.3352 352.531C42.4012 352.681 40.5446 353.356 38.9657 354.483C37.3868 355.61 36.1455 357.146 35.3756 358.927L1.73484 436.721C1.03366 438.342 0.74654 440.112 0.899298 441.872C1.05206 443.632 1.6399 445.326 2.60996 446.803C3.58002 448.279 4.90187 449.491 6.45659 450.33C8.01132 451.169 9.75018 451.608 11.5167 451.608H542.33C555.332 451.612 568.308 450.429 581.095 448.073C675.864 430.587 743.98 346.818 743.98 250.449L566.801 250.449ZM297.701 210.484H526.836V250.449H297.701V210.484ZM630.745 295.743C630.745 301.342 629.643 306.885 627.5 312.057C625.358 317.229 622.218 321.929 618.26 325.887C614.301 329.846 609.602 332.986 604.429 335.128C599.257 337.27 593.714 338.373 588.116 338.373H244.414C244.414 327.067 248.906 316.224 256.9 308.229C264.895 300.235 275.738 295.743 287.044 295.743L630.745 295.743Z" fill="#3F3D56"/>
+    <path d="M574.795 317.058H289.709C287.943 317.06 286.25 317.763 285.001 319.011C283.752 320.26 283.05 321.953 283.048 323.719V339.705H581.456V323.719C581.453 321.953 580.751 320.26 579.502 319.011C578.254 317.763 576.561 317.06 574.795 317.058ZM345.66 319.722H377.098V337.041H345.66V319.722ZM342.996 337.041H311.558V319.722H342.996V337.041ZM379.762 319.722H411.199V337.041H379.762V319.722ZM413.863 319.722H445.3V337.041H413.863V319.722ZM447.965 319.722H479.402V337.041H447.965V319.722ZM482.067 319.722H513.504V337.041H482.067V319.722ZM516.168 319.722H547.606V337.041H516.168V319.722ZM285.712 323.719C285.713 322.659 286.135 321.644 286.884 320.894C287.633 320.145 288.649 319.724 289.709 319.722H308.894V337.041H285.712V323.719ZM578.791 337.041H550.27V319.722H574.795C575.854 319.724 576.87 320.145 577.619 320.894C578.369 321.644 578.79 322.659 578.791 323.719V337.041Z" fill="#3F3D56"/>
+    <path d="M556.144 129.221H538.826V201.159H556.144V129.221Z" fill="#3F3D56"/>
+  </svg>
+
+  <!-- SVG pour les ondes sonar -->
+  <svg id="sonar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 600" width="100" height="300">
+    <circle class="sonarCircle" cx="50" cy="0" />
+    <circle class="sonarCircle" cx="50" cy="0" />
+    <circle class="sonarCircle" cx="50" cy="0" />
+  </svg>
+
+  <!-- SVG pour l'objet détecté -->
+  <svg id="objet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10" height="10">
+    <rect x="0" y="0" width="10" height="10" />
+  </svg>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const bateauSVG = document.getElementById('bateauSVG');
+    const sonar = document.getElementById('sonar');
+    const objet = document.getElementById('objet');
+
+    const bateauTimeline = gsap.timeline({ repeat: -1, repeatDelay: 10 });
+
+    bateauTimeline
+      .to([bateauSVG, sonar], {
+        duration: 5,
+        x: window.innerWidth, // Aller jusqu'au bout de l'écran
+        ease: 'power1.inOut'
+      })
+      .to([bateauSVG, sonar], {
+        duration: 0.5,
+        scaleX: -1, // Pour retourner le bateau
+        transformOrigin: "center"
+      })
+      .to([bateauSVG, sonar], {
+        duration: 2.5,
+        x: window.innerWidth / 2, // Revenir à la moitié de l'écran
+        ease: 'power1.inOut',
+        onComplete: function () {
+          // Afficher l'objet détecté
+          objet.style.display = 'block';
+          gsap.fromTo(objet, 
+            { x: bateauSVG._gsTransform.x + 75, y: 250 }, 
+            { x: bateauSVG._gsTransform.x + 75, y: 280, duration: 1 }
+          );
+        }
+      });
+  });
+</script>
+
 </body>
 </html>
