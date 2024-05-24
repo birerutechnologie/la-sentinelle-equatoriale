@@ -3,54 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animation Bateau et Sonar</title>
+  <title>Bireru Technologie</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
-  <style>
-    #animationContainer {
-      position: relative;
-      width: 100%;
-      height: 300px; /* Hauteur totale du champ d'animation */
-      background: linear-gradient(to bottom, white 33.33%, lightblue 33.33%);
-      overflow: hidden;
-    }
-    svg {
-      position: absolute;
-    }
-    #bateauSVG {
-      top: 10px; /* Positionner le bateau correctement sur la mer */
-    }
-    #sonar {
-      display: block; /* Assurez-vous que le sonar est visible */
-      top: 120px; /* Position initiale du sonar juste en bas du bateau */
-    }
-    .sonarCircle {
-      fill: none;
-      stroke: blue;
-      stroke-width: 2;
-      animation: sonarPulse 2s infinite;
-      transform-origin: center top;
-    }
-    @keyframes sonarPulse {
-      0% {
-        r: 0;
-        opacity: 1;
-        transform: scaleY(0);
-      }
-      100% {
-        r: 300;
-        opacity: 0;
-        transform: scaleY(1);
-      }
-    }
-    #objet {
-      fill: red;
-      display: none;
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
-
+<body class="relative">
+    <div class="logo">
+      <img src="assets/img/birerutechnologie_logo.png" alt="Logo de l'entreprise" class="h-28"> <!-- Remplacez "logo.png" par le chemin de votre logo -->
+    </div>
+    <div class="menu">
+        <nav>
+          <ul class="flex space-x-4 text-lg">
+            <li><a href="#home" class="hover:text-gray-600">Home</a></li>
+            <li><a href="#services" class="hover:text-gray-600">Services</a></li>
+            <li><a href="#contact" class="hover:text-gray-600">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+<div class="existing-content">
 <div id="animationContainer">
+    <div id="text">Sécurité Maritime</div>
   <!-- Nouveau SVG de bateau -->
   <svg id="bateauSVG" width="150" height="100" viewBox="0 0 744 452" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M237.731 37.9881C238.573 34.6844 241.311 32.2126 244.167 30.3499C247.022 28.4873 250.165 26.9903 252.603 24.6072C255.041 22.2242 256.681 18.6005 255.549 15.3845C254.174 11.476 249.589 9.91411 245.581 8.86034C282.262 4.91718 319.12 2.86094 356.012 2.69976C356.843 1.57284 358.009 0.737401 359.343 0.312778C360.678 -0.111844 362.112 -0.103938 363.441 0.335377C364.771 0.774691 365.928 1.62294 366.746 2.75896C367.565 3.89498 368.004 5.26064 368 6.66091V125.225H354.678V52.393C323.036 52.4697 291.393 52.5463 259.75 52.623C254.627 52.6353 249.296 52.6027 244.69 50.359C240.084 48.1153 236.466 42.9531 237.731 37.9881Z" fill="#CCCCCC"/>
@@ -61,8 +34,7 @@
     <path d="M574.795 317.058H289.709C287.943 317.06 286.25 317.763 285.001 319.011C283.752 320.26 283.05 321.953 283.048 323.719V339.705H581.456V323.719C581.453 321.953 580.751 320.26 579.502 319.011C578.254 317.763 576.561 317.06 574.795 317.058ZM345.66 319.722H377.098V337.041H345.66V319.722ZM342.996 337.041H311.558V319.722H342.996V337.041ZM379.762 319.722H411.199V337.041H379.762V319.722ZM413.863 319.722H445.3V337.041H413.863V319.722ZM447.965 319.722H479.402V337.041H447.965V319.722ZM482.067 319.722H513.504V337.041H482.067V319.722ZM516.168 319.722H547.606V337.041H516.168V319.722ZM285.712 323.719C285.713 322.659 286.135 321.644 286.884 320.894C287.633 320.145 288.649 319.724 289.709 319.722H308.894V337.041H285.712V323.719ZM578.791 337.041H550.27V319.722H574.795C575.854 319.724 576.87 320.145 577.619 320.894C578.369 321.644 578.79 322.659 578.791 323.719V337.041Z" fill="#3F3D56"/>
     <path d="M556.144 129.221H538.826V201.159H556.144V129.221Z" fill="#3F3D56"/>
   </svg>
-
-  <!-- SVG pour les ondes sonar -->
+    <!-- SVG pour les ondes sonar -->
   <svg id="sonar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 600" width="100" height="400">
     <circle class="sonarCircle" cx="50" cy="0" />
     <circle class="sonarCircle" cx="50" cy="0" />
@@ -73,17 +45,78 @@
   <svg id="objet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="40" height="40">
     <rect x="0" y="0" width="10" height="10" />
   </svg>
+
+  <!-- SVG Drone -->
+  <svg id="droneSVG" width="878" height="305" viewBox="0 0 878 305" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M317.721 142.544C316.697 142.545 315.715 142.953 314.991 143.677C314.267 144.401 313.86 145.383 313.858 146.407V300.722C313.86 301.746 314.267 302.728 314.991 303.452C315.715 304.176 316.697 304.584 317.721 304.585H343.917C344.941 304.584 345.923 304.176 346.647 303.452C347.371 302.728 347.779 301.746 347.78 300.722V146.407C347.779 145.383 347.371 144.401 346.647 143.677C345.923 142.953 344.941 142.545 343.917 142.544H317.721Z" fill="#3F3D56"/>
+    <path d="M535.561 142.544C534.536 142.545 533.554 142.953 532.83 143.677C532.106 144.401 531.699 145.383 531.697 146.407V300.722C531.699 301.746 532.106 302.728 532.83 303.452C533.554 304.176 534.536 304.584 535.561 304.585H561.756C562.78 304.584 563.762 304.176 564.486 303.452C565.21 302.728 565.618 301.746 565.619 300.722V146.407C565.618 145.383 565.21 144.401 564.486 143.677C563.762 142.953 562.78 142.545 561.756 142.544H535.561Z" fill="#3F3D56"/>
+    <path d="M657.947 19.9407L457.093 4.43372L617.333 31.7557L655.732 25.1097L657.947 19.9407Z" fill="#3F3D56"/>
+    <path d="M618.809 29.3247L657.208 22.6787L657.585 21.7987L659.423 21.9407L657.208 27.1097L618.809 33.7557L458.569 4.43372L506.056 10.0997L618.809 29.3247Z" fill="#6C63FF"/>
+    <path d="M203.071 19.9407L2.21582 4.43372L162.457 31.7557L200.856 25.1097L203.071 19.9407Z" fill="#3F3D56"/>
+    <path d="M160.241 29.3247L198.639 22.6787L199.017 21.7987L200.855 21.9407L198.639 27.1097L160.241 33.7557L0 4.43372L47.487 10.0997L160.241 29.3247Z" fill="#6C63FF"/>
+    <path d="M691.915 100.43L674.931 101.169L519.335 166.815L510.429 174.274L482.199 197.904H393.587L366.9 174.274L356.753 165.287L207.501 101.907L194.209 100.43L238.515 79.0155H238.751C248.794 69.4822 335.767 62.0315 441.585 62.0315C547.403 62.0315 634.376 69.4823 644.418 79.0155H645.393L691.915 100.43Z" fill="#3F3D56"/>
+    <path d="M237.298 80.1102C237.613 79.2248 237.775 78.2923 237.777 77.3525V42.2798C237.777 40.0761 236.902 37.9627 235.343 36.4045C233.785 34.8463 231.672 33.9709 229.468 33.9709H226.094C228.864 31.1754 230.745 27.6225 231.5 23.76C232.254 19.8975 231.849 15.8981 230.334 12.2656C228.82 8.63316 226.264 5.53013 222.989 3.34744C219.715 1.16476 215.867 6.10352e-05 211.932 6.10352e-05C207.996 6.10352e-05 204.149 1.16476 200.874 3.34744C197.599 5.53013 195.044 8.63316 193.529 12.2656C192.015 15.8981 191.609 19.8975 192.364 23.76C193.118 27.6225 194.999 31.1754 197.769 33.9709H194.395C193.304 33.9709 192.224 34.1858 191.216 34.6034C190.208 35.0209 189.292 35.633 188.52 36.4045C187.749 37.1761 187.137 38.092 186.719 39.1001C186.301 40.1082 186.086 41.1886 186.086 42.2798V77.3525C186.086 78.7887 186.46 80.2001 187.171 81.4477C184.663 81.8874 182.156 82.3648 179.648 82.9163C178.12 83.2579 176.755 84.1104 175.777 85.333C174.8 86.5557 174.269 88.0752 174.271 89.6405V97.9735C174.271 99.8001 174.997 101.552 176.289 102.844C177.58 104.135 179.332 104.861 181.159 104.861H259.192V84.1846C251.986 82.3699 244.674 81.0091 237.298 80.1102Z" fill="#3F3D56"/>
+    <path d="M699.092 82.9163C696.584 82.3648 694.076 81.8874 691.568 81.4477C692.28 80.2001 692.653 78.7887 692.653 77.3525V42.2798C692.653 41.1886 692.438 40.1082 692.021 39.1001C691.603 38.092 690.991 37.1761 690.219 36.4045C689.448 35.633 688.532 35.0209 687.524 34.6034C686.516 34.1858 685.435 33.9709 684.344 33.9709H680.971C683.741 31.1754 685.621 27.6225 686.376 23.76C687.13 19.8975 686.725 15.8981 685.21 12.2656C683.696 8.63313 681.14 5.53007 677.865 3.34738C674.591 1.16469 670.743 0 666.808 0C662.872 0 659.025 1.16469 655.75 3.34738C652.475 5.53007 649.92 8.63313 648.405 12.2656C646.891 15.8981 646.485 19.8975 647.24 23.76C647.994 27.6225 649.875 31.1754 652.645 33.9709H649.271C648.18 33.9709 647.1 34.1858 646.092 34.6034C645.084 35.0209 644.168 35.633 643.396 36.4045C642.625 37.1761 642.013 38.092 641.595 39.1001C641.177 40.1082 640.962 41.1886 640.962 42.2798V77.3525C640.964 78.2923 641.126 79.2248 641.441 80.1102C634.065 81.0091 626.753 82.3699 619.548 84.1846V104.861H697.581C699.407 104.861 701.159 104.135 702.451 102.844C703.742 101.552 704.468 99.8001 704.468 97.9735V89.6405C704.471 88.0752 703.94 86.5557 702.962 85.333C701.985 84.1104 700.619 83.2579 699.092 82.9163Z" fill="#3F3D56"/>
+    <path d="M675.669 19.9407L876.523 4.43372L716.283 31.7557L677.884 25.1097L675.669 19.9407Z" fill="#3F3D56"/>
+    <path d="M453.473 191.258H422.313C421.159 191.258 420.016 191.485 418.95 191.927C417.883 192.368 416.915 193.016 416.099 193.832C415.282 194.648 414.635 195.617 414.193 196.683C413.752 197.749 413.524 198.892 413.524 200.046V206.838C413.525 208.622 414.07 210.363 415.085 211.83C416.1 213.297 417.537 214.421 419.207 215.051C417.918 216.597 417.214 218.547 417.217 220.56V222.507C417.216 223.896 417.552 225.265 418.195 226.496C418.838 227.727 419.769 228.784 420.909 229.577V255.502H454.877V229.577C456.017 228.784 456.948 227.727 457.591 226.496C458.234 225.265 458.569 223.896 458.569 222.508V220.56C458.572 218.547 457.867 216.597 456.579 215.051C458.248 214.421 459.686 213.297 460.701 211.83C461.716 210.363 462.26 208.622 462.261 206.838V200.046C462.261 198.892 462.034 197.749 461.592 196.683C461.151 195.617 460.503 194.648 459.687 193.832C458.871 193.016 457.902 192.368 456.836 191.927C455.77 191.485 454.627 191.258 453.473 191.258Z" fill="#3F3D56"/>
+    <path d="M406.227 251.833C404.84 251.835 403.51 252.386 402.529 253.367C401.548 254.348 400.996 255.678 400.994 257.065V298.982C400.996 300.37 401.547 301.7 402.529 302.681C403.51 303.662 404.84 304.214 406.227 304.216H469.559C470.946 304.214 472.276 303.662 473.257 302.681C474.238 301.7 474.79 300.37 474.791 298.982V257.065C474.789 255.678 474.237 254.348 473.257 253.367C472.276 252.386 470.946 251.835 469.559 251.833H406.227Z" fill="#6C63FF"/>
+    <path d="M510.429 174.274L482.199 197.904H393.587L366.899 174.274H393.439L394.598 168.492C394.938 166.791 395.857 165.261 397.197 164.161C398.538 163.061 400.219 162.459 401.953 162.459H476.048C477.782 162.459 479.462 163.061 480.803 164.161C482.144 165.261 483.063 166.791 483.402 168.492L484.562 174.274H510.429Z" fill="#6C63FF"/>
+    <path d="M437.893 298.7C449.312 298.7 458.569 289.443 458.569 278.024C458.569 266.605 449.312 257.348 437.893 257.348C426.474 257.348 417.217 266.605 417.217 278.024C417.217 289.443 426.474 298.7 437.893 298.7Z" fill="#3F3D56"/>
+    <path d="M437.893 289.839C444.418 289.839 449.708 284.549 449.708 278.024C449.708 271.499 444.418 266.209 437.893 266.209C431.368 266.209 426.078 271.499 426.078 278.024C426.078 284.549 431.368 289.839 437.893 289.839Z" fill="#E6E6E6"/>
+    <path d="M445.034 268.627C446.767 270.899 447.617 273.722 447.426 276.573C447.236 279.423 446.017 282.108 443.997 284.128C441.976 286.148 439.292 287.367 436.441 287.558C433.591 287.749 430.768 286.899 428.496 285.166C429.515 286.509 430.809 287.619 432.293 288.421C433.776 289.222 435.414 289.696 437.097 289.811C438.779 289.927 440.466 289.68 442.045 289.088C443.624 288.497 445.058 287.574 446.25 286.381C447.442 285.189 448.365 283.755 448.957 282.176C449.549 280.597 449.795 278.91 449.68 277.228C449.565 275.546 449.09 273.908 448.289 272.424C447.488 270.941 446.378 269.646 445.034 268.627Z" fill="white"/>
+    <path d="M704.837 91.7241H174.641V95.1062H704.837V91.7241Z" fill="#E6E6E6"/>
+    <path d="M717.76 29.3247L679.361 22.6787L678.984 21.7987L677.146 21.9407L679.361 27.1097L717.76 33.7557L878 4.43372L830.513 10.0997L717.76 29.3247Z" fill="#6C63FF"/>
+    <path d="M220.792 19.9407L421.647 4.43372L261.406 31.7557L223.008 25.1097L220.792 19.9407Z" fill="#3F3D56"/>
+    <path d="M263.623 29.3247L225.224 22.6787L224.847 21.7987L223.009 21.9407L225.224 27.1097L263.623 33.7557L423.863 4.43372L376.376 10.0997L263.623 29.3247Z" fill="#6C63FF"/>
+    <path d="M468.538 168.735H409.463V180.55H468.538V168.735Z" fill="#E6E6E6"/>
+  </svg>
+</div>
 </div>
 
+<div class="hero-section">
+    <!-- <h1>La Sentinelle Equatorialle</h1> -->
+    <div class="hero-text">
+        <h2>Reconnaissance et Surveillance du Terrain</h2>
+        <p class="primary-text">Services de surveillance spatiale et aérienne pour la sécurité des frontières, la détection de toutes  activités illégales, et la surveillance environnementale.</p>
+        <p class="secondary-text">Notre technologie de surveillance par drone fournit une image claire et continue des frontières, permettant une surveillance en temps réel des mouvements illégaux et des tentatives d'intrusion.
+            En combinant des analyses d'imagerie de pointe avec des algorithmes de détection automatique, nos systèmes permettent aux forces de sécurité de réagir rapidement et efficacement à toute menace potentielle. La précision de notre technologie  garantit que même les activités les plus discrètes ne passent pas inaperçues, assurant une couverture complète jour et nuit.
+            
+            Au-delà de la simple surveillance des frontières, nos drones sont également capables de détecter une variété d'activités illégales, telles que le trafic de drogue, la contrebande, et le braconnage.
+            Cette technologie peut traverser la canopée des forêts et d'autres couvertures naturelles pour révéler des activités cachées qui seraient autrement invisibles avec des méthodes de surveillance traditionnelles.
+            Nos solutions aident non seulement à protéger les ressources nationales mais aussi à combattre les réseaux criminels en fournissant des preuves irréfutables qui peuvent être utilisées pour leur poursuite.
+            </p>
+        <!-- <div class="buttons">
+            <button class="btn btn-primary">Learn more</button>
+            <button class="btn btn-secondary">About Us</button>
+        </div> -->
+    </div>
+    <div class="hero-image">
+        <img src="assets/img/drone_survol.webp" alt="Hero Image">
+    </div>
+</div>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const bateauSVG = document.getElementById('bateauSVG');
     const sonar = document.getElementById('sonar');
     const objet = document.getElementById('objet');
+    const text = document.getElementById('text');
+    const droneSVG = document.getElementById('droneSVG');
 
-    const bateauTimeline = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+    const bateauTimeline = gsap.timeline({ repeat: -1, repeatDelay: 0 });
 
     bateauTimeline
+        .to({}, {
+        duration: 1, // Arrêt de 10 secondes
+        onStart: function () {
+            // Afficher le texte avec effet "zoom in"
+            text.style.display = 'block';
+            text.classList.add('zoomIn');
+            // Cacher le texte après 3 secondes
+            setTimeout(() => {
+            text.style.display = 'none';
+            }, 4000);
+        }
+        })
       .to([bateauSVG, sonar], {
         duration: 5,
         x: window.innerWidth, // Aller jusqu'au bout de l'écran
@@ -116,7 +149,31 @@
         duration: 5,
         x: - window.innerWidth, // Aller jusqu'au bout de l'écran
         ease: 'power1.inOut'
-      });
+      })
+      .to({}, {
+      duration: 0, // Ajouter une pause après que le bateau ait atteint le bout de l'écran
+      onComplete: function () {
+        // Afficher le drone et démarrer l'animation
+        droneSVG.style.display = 'block';
+        gsap.to('#droneSVG', { 
+        duration: 10, 
+        x: -50, 
+        y: 10, // Ajout du mouvement vertical
+        yoyo: true, 
+        repeat: 1, 
+        ease: 'power1.inOut' 
+        });
+        gsap.to('.propeller', { rotation: 90, transformOrigin: "center", repeat: -1, ease: "linear", duration: 1 });
+      }
+    })
+    .to({}, {
+      duration: 10, // Durée de l'animation du drone
+      onComplete: function () {
+        // Masquer le drone après l'animation
+        droneSVG.style.display = 'none';
+      }
+    });
+      
   });
 </script>
 
