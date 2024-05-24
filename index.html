@@ -9,19 +9,19 @@
     #animationContainer {
       position: relative;
       width: 100%;
-      height: 600px; /* Augmenter la hauteur pour permettre une propagation complète du signal */
-      background: linear-gradient(to bottom, white 50%, lightblue 50%);
+      height: 300px; /* Hauteur totale du champ d'animation */
+      background: linear-gradient(to bottom, white 33.33%, lightblue 33.33%);
       overflow: hidden;
     }
     svg {
       position: absolute;
     }
     #bateauSVG {
-      top: 220px; /* Remonte le bateau de 110 pixels pour le positionner correctement sur la mer */
+      top: 10px; /* Positionner le bateau correctement sur la mer */
     }
     #sonar {
       display: block; /* Assurez-vous que le sonar est visible */
-      top: 300px; /* Position initiale du sonar juste en bas du bateau */
+      top: 120px; /* Position initiale du sonar juste en bas du bateau */
     }
     .sonarCircle {
       fill: none;
@@ -37,7 +37,7 @@
         transform: scaleY(0);
       }
       100% {
-        r: 150;
+        r: 300;
         opacity: 0;
         transform: scaleY(1);
       }
@@ -63,14 +63,14 @@
   </svg>
 
   <!-- SVG pour les ondes sonar -->
-  <svg id="sonar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 600" width="100" height="300">
+  <svg id="sonar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 600" width="100" height="400">
     <circle class="sonarCircle" cx="50" cy="0" />
     <circle class="sonarCircle" cx="50" cy="0" />
     <circle class="sonarCircle" cx="50" cy="0" />
   </svg>
 
   <!-- SVG pour l'objet détecté -->
-  <svg id="objet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10" height="10">
+  <svg id="objet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="40" height="40">
     <rect x="0" y="0" width="10" height="10" />
   </svg>
 </div>
@@ -81,13 +81,18 @@
     const sonar = document.getElementById('sonar');
     const objet = document.getElementById('objet');
 
-    const bateauTimeline = gsap.timeline({ repeat: -1, repeatDelay: 10 });
+    const bateauTimeline = gsap.timeline({ repeat: -1, repeatDelay: 1 });
 
     bateauTimeline
       .to([bateauSVG, sonar], {
         duration: 5,
         x: window.innerWidth, // Aller jusqu'au bout de l'écran
-        ease: 'power1.inOut'
+        ease: 'power1.inOut',
+        onComplete: function () {
+          // Afficher l'objet détecté quand le bateau commence à retourner
+          gsap.set(objet, { x: window.innerWidth / 2, y: 260 });
+          objet.style.display = 'block';
+        }
       })
       .to([bateauSVG, sonar], {
         duration: 0.5,
@@ -97,15 +102,20 @@
       .to([bateauSVG, sonar], {
         duration: 2.5,
         x: window.innerWidth / 2, // Revenir à la moitié de l'écran
-        ease: 'power1.inOut',
+        ease: 'power1.inOut'
+      })
+      .to([bateauSVG, sonar], {
+        duration: 5,
+        delay: 5, // Arrêt de 10 secondes
         onComplete: function () {
-          // Afficher l'objet détecté
-          objet.style.display = 'block';
-          gsap.fromTo(objet, 
-            { x: bateauSVG._gsTransform.x + 75, y: 250 }, 
-            { x: bateauSVG._gsTransform.x + 75, y: 280, duration: 1 }
-          );
+          // Masquer l'objet détecté
+          objet.style.display = 'none';
         }
+      })
+      .to([bateauSVG, sonar], {
+        duration: 5,
+        x: - window.innerWidth, // Aller jusqu'au bout de l'écran
+        ease: 'power1.inOut'
       });
   });
 </script>
