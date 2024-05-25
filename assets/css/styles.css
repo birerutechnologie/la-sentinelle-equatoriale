@@ -135,7 +135,7 @@ body {
 }
 
 .hero-text {
-  padding: 40px;
+  /* padding: 40px; */
   flex: 1;
 }
 
@@ -192,11 +192,6 @@ body {
   object-fit: cover;
 }
 
-/* @media (max-width: 768px) {
-  .hero-text {
-    padding-left: 4rem; /* Ajuste cette valeur selon vos besoins */
-  }
-} */
 .rounded-logo-container {
   overflow: hidden; /* Masquer les parties en dehors des bords arrondis */
 }
