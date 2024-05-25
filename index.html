@@ -12,18 +12,30 @@
     <div class="logo">
       <img src="assets/img/birerutechnologie_logo.png" alt="Logo de l'entreprise" class="h-28"> <!-- Remplacez "logo.png" par le chemin de votre logo -->
     </div>
-    <div class="menu">
+        <!-- <h1 class="text-2xl font-bold p-6">Innovation Technologique</h1> -->
+    
+    <div class="menu bg-white shadow-lg p-4 rounded-lg">
         <nav>
-          <ul class="flex space-x-4 text-lg">
-            <li><a href="#home" class="hover:text-gray-600">Home</a></li>
-            <li><a href="#services" class="hover:text-gray-600">Services</a></li>
-            <li><a href="#contact" class="hover:text-gray-600">Contact</a></li>
-          </ul>
+            <ul class="flex space-x-8 text-lg">
+                <li><a href="#home" class="text-gray-800 hover:text-blue-600 transition-colors duration-300">Home</a></li>
+                <li class="relative group" id="servicesMenu">
+                    <a href="#" class="text-gray-800 hover:text-blue-600 transition-colors duration-300">Services</a>
+                    <ul class="absolute left-0 hidden mt-2 bg-white border border-gray-200 rounded shadow-lg group-hover:block">
+                        <li><a href="#securite" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300">Sécurité Térritoriale</a></li>
+                        <li><a href="#environnement" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300">Environnement</a></li>
+                        <li><a href="#agriculture" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300">Agriculture</a></li>
+                        <li><a href="#sauvetage" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300">Sauvetage</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact" class="text-gray-800 hover:text-blue-600 transition-colors duration-300">Contact</a></li>
+            </ul>
         </nav>
-      </div>
+    </div>
 <div class="existing-content">
 <div id="animationContainer">
-    <div id="text">Sécurité Maritime</div>
+    
+    <div id="text">Nous concevons</div>
+    <div id="text2">Vos besoins</div>
   <!-- Nouveau SVG de bateau -->
   <svg id="bateauSVG" width="150" height="100" viewBox="0 0 744 452" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M237.731 37.9881C238.573 34.6844 241.311 32.2126 244.167 30.3499C247.022 28.4873 250.165 26.9903 252.603 24.6072C255.041 22.2242 256.681 18.6005 255.549 15.3845C254.174 11.476 249.589 9.91411 245.581 8.86034C282.262 4.91718 319.12 2.86094 356.012 2.69976C356.843 1.57284 358.009 0.737401 359.343 0.312778C360.678 -0.111844 362.112 -0.103938 363.441 0.335377C364.771 0.774691 365.928 1.62294 366.746 2.75896C367.565 3.89498 368.004 5.26064 368 6.66091V125.225H354.678V52.393C323.036 52.4697 291.393 52.5463 259.75 52.623C254.627 52.6353 249.296 52.6027 244.69 50.359C240.084 48.1153 236.466 42.9531 237.731 37.9881Z" fill="#CCCCCC"/>
@@ -45,7 +57,7 @@
   <svg id="objet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="40" height="40">
     <rect x="0" y="0" width="10" height="10" />
   </svg>
-
+  
   <!-- SVG Drone -->
   <svg id="droneSVG" width="878" height="305" viewBox="0 0 878 305" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M317.721 142.544C316.697 142.545 315.715 142.953 314.991 143.677C314.267 144.401 313.86 145.383 313.858 146.407V300.722C313.86 301.746 314.267 302.728 314.991 303.452C315.715 304.176 316.697 304.584 317.721 304.585H343.917C344.941 304.584 345.923 304.176 346.647 303.452C347.371 302.728 347.779 301.746 347.78 300.722V146.407C347.779 145.383 347.371 144.401 346.647 143.677C345.923 142.953 344.941 142.545 343.917 142.544H317.721Z" fill="#3F3D56"/>
@@ -72,110 +84,93 @@
   </svg>
 </div>
 </div>
+<section id="securite">
+    <div class="hero-section flex flex-col md:flex-row items-center">
+        <div class="hero-image order-1 md:order-2 md:w-1/2">
+            <img src="assets/img/drone_survol.webp" alt="Hero Image" class="w-full h-auto">
+        </div>
+        <div class="hero-text order-2 md:order-1 md:w-1/2 p-4">
+            <h2>Surveillance et Sécurité Intélligente du Territoire</h2>
+            <p class="primary-text">Surveillance des Infrastructures Critiques et des Frontières</p>
+            <p class="secondary-text">Les routes, les ponts, les pipelines pétroliers et les voies ferrées jouent un rôle crucial dans le transport des ressources et 
+                le bon fonctionnement de l'économie. Cependant, ils sont exposés à des risques tels que les fuites, les intrusions et les dommages environnementaux.</p>
+                
+            <p> Dans le cadre du projet dénomé "La Sentinelle Equatoriale" nous utilisons des drones intelligents et autonomes pour une surveillance continue et précise des pipelines et des réseaux ferroviaires.
+                Nos drones, équipés de technologies de pointe, survolent régulièrement les infrastructures, détectant rapidement les anomalies et les menaces potentielles qui sont fréquement invisibles pour l'humain.
+                Les données collectées sont taritées et analysées en temps réel, permettant une intervention raisonnable des équipes de maintenance et de sécurité.</p>
 
-<div class="hero-section">
-    <!-- <h1>La Sentinelle Equatorialle</h1> -->
-    <div class="hero-text">
-        <h2>Reconnaissance et Surveillance du Terrain</h2>
-        <p class="primary-text">Services de surveillance spatiale et aérienne pour la sécurité des frontières, la détection de toutes  activités illégales, et la surveillance environnementale.</p>
-        <p class="secondary-text">Notre technologie de surveillance par drone fournit une image claire et continue des frontières, permettant une surveillance en temps réel des mouvements illégaux et des tentatives d'intrusion.
-            En combinant des analyses d'imagerie de pointe avec des algorithmes de détection automatique, nos systèmes permettent aux forces de sécurité de réagir rapidement et efficacement à toute menace potentielle. La précision de notre technologie  garantit que même les activités les plus discrètes ne passent pas inaperçues, assurant une couverture complète jour et nuit.
+            <p>Par ailleurs nos proposons des drones patrouilleurs afin de surveiller des échanges irréguliers aux frontières, permettant aux autorités de réagir rapidement et efficacement.</p>
+        </div>
+    </div>
+</section>
+<section id="environnement">
+    <div class="hero-section flex flex-col md:flex-row items-center relative">
+        <!-- Environnement  -->
+        <div class="hero-image order-1 md:order-2 md:w-1/2">
+            <img src="assets/img/dechet_manganes.webp" alt="Hero Image" class="w-full h-auto">
+        </div>
+        <div class="hero-text order-2 md:order-1 md:w-1/2 p-4">
+            <div class="w-full flex justify-center md:justify-start mb-4">
+                <img src="assets/img/EcoTech_Gab_logo_removebg.png" alt="Partner Logo" class="w-32 h-32 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full"> <!-- Augmentez les tailles ici -->
+            </div>
+            <h2>L’Innovation et Durabilité de l'Environnement</h2>
+            <p class="primary-text">Surveillance des Infrastructures Critiques et des Frontières</p>
+            <p class="primary-text">La production croissante de déchets au Gabon pose un défi majeur pour la santé publique, l'environnement et l'économie.
+                Les solutions de gestion des déchets actuelles sont insuffisantes et inefficaces, ce qui entraîne une dégradation croissante d'un certain nombre de problèmes</p>
+            <p class="secondary-text">EcoTech Gabon, une startup spécialisée dans les solutions de gestion des déchets industriels miniers, elle propose des solutions conséquantes pour y remédier qui demarrent par l'acquisition, l'analyse et le traitement de ces dechets pour des fins de recyclages .</p>
             
-            Au-delà de la simple surveillance des frontières, nos drones sont également capables de détecter une variété d'activités illégales, telles que le trafic de drogue, la contrebande, et le braconnage.
-            Cette technologie peut traverser la canopée des forêts et d'autres couvertures naturelles pour révéler des activités cachées qui seraient autrement invisibles avec des méthodes de surveillance traditionnelles.
-            Nos solutions aident non seulement à protéger les ressources nationales mais aussi à combattre les réseaux criminels en fournissant des preuves irréfutables qui peuvent être utilisées pour leur poursuite.
+            <p>Elle s'investie nottement dans la collecte automatisée des ordures ménagers via des poubelles IoT, reliée à notre service cloud en ligne.
+                Ce volet dois engagé les autorités départementales</p>
+
+            <p> Par ailleurs, EcoTech Gabon utilise des technologies de modélisation et de simulation avancées pour anticiper et gérer les catastrophes naturelles.
+                Les drones collectent des données environnementales en temps réel, qui sont ensuite analysées pour prévoir les catastrophes potentielles.
+                Les simulations permettent de planifier et de mettre en œuvre des mesures préventives, réduisant ainsi les impacts et protégeant les vies et les biens.</p>
+
+            <p>"Si nous ne prenons pas soin de la Terre, elle ne prendra pas soin de nous." - <strong>Wangari Muta Maathai</strong></p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+ <!-- <h1>La Sentinelle Equatorialle</h1> -->
+ <section id="agriculture">
+    <div class="hero-section flex flex-col md:flex-row items-center">
+        <div class="hero-image order-1 md:order-2 md:w-1/2">
+            <img src="assets/img/drone_agricol.webp" alt="Hero Image" class="w-full h-auto">
+        </div>
+        <div class="hero-text order-2 md:order-1 md:w-1/2 p-4">
+            <h2>Agriculture de Précision pour une Production Optimale</h2>
+            <p class="primary-text">La gestion des cultures est souvent entravée par un manque d'informations précises sur la santé des plantations, les stress hydriques et les infestations. Car ces informations sont souvent invisibles à temps par l'humain (lorsqu'on s'en rend compte il est deja trop tard) ceci implique ce besoin afin de rentabiliser nos productions</p>
+            <p class="primary-text">Une surveillance inefficace des cultures peut entraîner des pertes importantes et une baisse de la productivité.</p>
+            <p>Nos drones </p>
+            <p> Par ailleurs, EcoTech Gabon utilise des technologies de modélisation et de simulation avancées pour anticiper et gérer les catastrophes naturelles.
+                Les drones collectent des données environnementales en temps réel, qui sont ensuite analysées pour prévoir les catastrophes potentielles.
+                Les simulations permettent de planifier et de mettre en œuvre des mesures préventives, réduisant ainsi les impacts et protégeant les vies et les biens.</p>
+            <p>Nous fournissons des recommandations précises sur les besoins en eau, ou autres produits correctifs des différentes zones de culture,
+                permettant une augmentation de la productivité des cultures.</p>
+        </div>
+    </div>
+</section>
+<section id="sauvetage">
+    <div class="hero-section flex flex-col md:flex-row items-center">
+        <div class="hero-text order-2 md:order-1 md:w-1/2 p-4">
+            <h2>Intervention et Sauvetage de Précision</h2>
+            <p class="primary-text">Les opérations de sauvetage sous-marins peuvent être lentes et risquées, mettant en danger les sauveteurs et les victimes, nous en tenant pour preuve l'épisode du naufrage "Esther Miracle"</p>
+            <p class="secondary-text">Nos systèmes embarqués et drones autonomes et rapides sont équipés de technologies avancées pour localiser efficacement les victimes d'accidents sous-marins.
+                Ils peuvent survoler de vastes zones en peu de temps et envoyer des images en temps réel aux équipes de sauvetage, facilitant une intervention rapide et ciblée.
             </p>
-        <!-- <div class="buttons">
-            <button class="btn btn-primary">Learn more</button>
-            <button class="btn btn-secondary">About Us</button>
-        </div> -->
+            <p>Les drones peuvent également transporter des équipements de sauvetage légers pour aider les victimes jusqu'à l'arrivée des secours.</p>
+            <p>«On aurait souhaité faire plus» - <strong>Commandant Mougoula du navire "Céleste"</strong></p>
+        </div>
+        <div class="hero-image order-1 md:order-2 md:w-1/2">
+            <img src="assets/img/drone_sauvetage.webp" alt="Hero Image" class="w-full h-auto">
+        </div>
     </div>
-    <div class="hero-image">
-        <img src="assets/img/drone_survol.webp" alt="Hero Image">
-    </div>
-</div>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const bateauSVG = document.getElementById('bateauSVG');
-    const sonar = document.getElementById('sonar');
-    const objet = document.getElementById('objet');
-    const text = document.getElementById('text');
-    const droneSVG = document.getElementById('droneSVG');
+</section>
 
-    const bateauTimeline = gsap.timeline({ repeat: -1, repeatDelay: 0 });
-
-    bateauTimeline
-        .to({}, {
-        duration: 1, // Arrêt de 10 secondes
-        onStart: function () {
-            // Afficher le texte avec effet "zoom in"
-            text.style.display = 'block';
-            text.classList.add('zoomIn');
-            // Cacher le texte après 3 secondes
-            setTimeout(() => {
-            text.style.display = 'none';
-            }, 4000);
-        }
-        })
-      .to([bateauSVG, sonar], {
-        duration: 5,
-        x: window.innerWidth, // Aller jusqu'au bout de l'écran
-        ease: 'power1.inOut',
-        onComplete: function () {
-          // Afficher l'objet détecté quand le bateau commence à retourner
-          gsap.set(objet, { x: window.innerWidth / 2, y: 260 });
-          objet.style.display = 'block';
-        }
-      })
-      .to([bateauSVG, sonar], {
-        duration: 0.5,
-        scaleX: -1, // Pour retourner le bateau
-        transformOrigin: "center"
-      })
-      .to([bateauSVG, sonar], {
-        duration: 2.5,
-        x: window.innerWidth / 2, // Revenir à la moitié de l'écran
-        ease: 'power1.inOut'
-      })
-      .to([bateauSVG, sonar], {
-        duration: 5,
-        delay: 5, // Arrêt de 10 secondes
-        onComplete: function () {
-          // Masquer l'objet détecté
-          objet.style.display = 'none';
-        }
-      })
-      .to([bateauSVG, sonar], {
-        duration: 5,
-        x: - window.innerWidth, // Aller jusqu'au bout de l'écran
-        ease: 'power1.inOut'
-      })
-      .to({}, {
-      duration: 0, // Ajouter une pause après que le bateau ait atteint le bout de l'écran
-      onComplete: function () {
-        // Afficher le drone et démarrer l'animation
-        droneSVG.style.display = 'block';
-        gsap.to('#droneSVG', { 
-        duration: 10, 
-        x: -50, 
-        y: 10, // Ajout du mouvement vertical
-        yoyo: true, 
-        repeat: 1, 
-        ease: 'power1.inOut' 
-        });
-        gsap.to('.propeller', { rotation: 90, transformOrigin: "center", repeat: -1, ease: "linear", duration: 1 });
-      }
-    })
-    .to({}, {
-      duration: 10, // Durée de l'animation du drone
-      onComplete: function () {
-        // Masquer le drone après l'animation
-        droneSVG.style.display = 'none';
-      }
-    });
-      
-  });
-</script>
-
+<script src="assets/js/script.js"></script>
 </body>
 </html>
